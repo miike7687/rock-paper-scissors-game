@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Set three variables in an array
+      var options = ["r", "p", "s"];
+      var userScore = 0;
+      var computerScore = 0;
+      var tieScore = 0;
+      var round;
+
+      // Prompt the user to pick one of those three variables and store the data
+
+      // Generate a random selection of the three variables by the computer
+
+      // Alert the user of the computer's random selection
+
+      // Compare the user's variable with the computer's variable
+
+      // We determine if the user wins or not.
+      //   Indicate what happens whenever there is a tie
+      alert(
+        "Welcome to the computer version of Rocks, Paper, Scissors! Click 'OK' to begin the game. If you don't want to play, exit out of the browser!"
+      );
+      for (round = 0; round <= 10; round++) {
+        var userPick = prompt("Choose 'r', 'p', or 's'!");
+        var computerPick = options[Math.floor(Math.random() * 3)];
+        alert("The computer selected " + computerPick);
+        if (userPick === computerPick) {
+          alert("You tied!");
+          //    * If user ties then we add one to their ties.
+          tieScore++;
+          alert("You have " + tieScore + " tie(s)!");
+        }
+        //    * If user picks rock and if computer picks scissors then user wins.
+        else if (userPick === "r" && computerPick === "s") {
+          alert("You've won!");
+          //    * If user wins then we add one to their wins.
+          userScore++;
+          alert("You have " + userScore + " win(s)!");
+        }
+
+        //    * If user picks rock and if computer picks paper then user loses.
+        else if (userPick === "r" && computerPick === "p") {
+          alert("You've lost!");
+          //    * If user loses then we add one to their losses.
+          computerScore++;
+          alert("You have " + computerScore + " loss(es)!");
+        }
+        //    * If user picks scissors and if computer picks rock then user loses.
+        else if (userPick === "s" && computerPick === "r") {
+          alert("You've lost!");
+          //    * If user loses then we add one to their losses.
+          computerScore++;
+          alert("You have " + computerScore + " loss(es)!");
+        }
+        //    * If user picks scissors and if computer picks paper then user wins.
+        else if (userPick === "s" && computerPick === "p") {
+          alert("You've won!");
+          //    * If user wins then we add one to their wins.
+          userScore++;
+          alert("You have " + userScore + " win(s)!");
+        }
+        //    * If user picks paper and if computer picks rock then user wins.
+        else if (userPick === "p" && computerPick === "r") {
+          alert("You've won!");
+          //    * If user wins then we add one to their wins.
+          userScore++;
+          alert("You have " + userScore + " win(s)!");
+        }
+        //    * If user picks paper and if computer picks scissors then user loses.
+        else if (userPick === "p" && computerPick === "s") {
+          alert("You've lost!");
+          //    * If user loses then we add one to their losses.
+          computerScore++;
+          alert("You have " + computerScore + " loss(es)!");
+        } else {
+          alert("Please only choose 'r', 'p', or 's'! Try again!");
+        }
+      }
+      // After 10 turns, end the game and alert the final score
+      alert(
+        "You had " +
+          userScore +
+          " win(s), " +
+          computerScore +
+          " loss(es), and " +
+          tieScore +
+          " tie(s)!"
+      );
+      if (userScore > computerScore) {
+        alert("Congratulations! You had more wins than the computer!");
+      } else if (computerScore > userScore) {
+        alert(
+          "Ouch, you had more losses than the computer! Try harder next time!"
+        );
+      } else {
+        alert("You tied in wins with the computer! At least you didn't lose!");
+      }
+    </script>
+  </body>
+</html>
